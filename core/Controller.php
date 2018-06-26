@@ -50,7 +50,35 @@ class Controller {
 
     private function controllerNotHome() {
 
+        $controller = $this->getControllerNotHome();
+
+        dd($controller);
+
+        if (!$this->controllerExist($controller)) {
+
+            throw new ControllerNotExistException("Esse controller não existe");
+
+        } else {
+
+            return $this->instantiateController();
+
+        }
+
+    }
+
+    private function getControllerNotHome() {
         
+        if (substr_count($this->uri, '/') > 1) {
+
+            list($controller) = array_values(array_filter(explode('/', $this->uri)));
+
+            return ucfirst($controller).'Controller'; 
+
+        } else {
+
+            return ucfirst(ltrim($this->uri, '/')).'Controller';
+
+        }        
 
     }
 

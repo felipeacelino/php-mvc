@@ -4,6 +4,8 @@ require "../bootstrap.php";
 
 use core\Controller;
 
+//dd(app\classes\Uri::uri());
+
 try {
 
     $controller = new Controller;
