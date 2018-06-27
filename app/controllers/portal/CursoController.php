@@ -6,13 +6,13 @@ class CursoController {
 
     public function index() {
 
-        dd('indexCurso');
+        dd('index');
 
     }
 
-    public function show() {
+    public function show($request) {
 
-        
+        dd($request->next);
 
     }
 
