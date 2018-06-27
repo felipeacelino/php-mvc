@@ -3,15 +3,17 @@
 require "../bootstrap.php";
 
 use core\Controller;
-
-//dd(app\classes\Uri::uri());
+use core\Method;
 
 try {
 
     $controller = new Controller;
     $controller = $controller->load();
 
-    dd($controller);
+    $method = new Method;
+    $method = $method->load($controller);
+
+    $controller->$method();
 
 } catch(\Exception $e) {
 

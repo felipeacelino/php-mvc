@@ -39,7 +39,7 @@ class Controller {
     private function controllerHome() {
 
         if (!$this->controllerExist('HomeController')) {
-
+            
             throw new ControllerNotExistException("Esse controller não existe");
             
         }
@@ -51,8 +51,6 @@ class Controller {
     private function controllerNotHome() {
 
         $controller = $this->getControllerNotHome();
-
-        dd($controller);
 
         if (!$this->controllerExist($controller)) {
 
@@ -67,7 +65,7 @@ class Controller {
     }
 
     private function getControllerNotHome() {
-        
+
         if (substr_count($this->uri, '/') > 1) {
 
             list($controller) = array_values(array_filter(explode('/', $this->uri)));
@@ -84,7 +82,7 @@ class Controller {
 
     private function isHome() {
 
-        return ($this->uri == "/php-mvc/public/");
+        return ($this->uri == "/");
 
     }
 

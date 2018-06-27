@@ -2,11 +2,11 @@
 
 namespace app\controllers\portal;
 
-class ProdutoController {
+class CursoController {
 
     public function index() {
 
-        dd('indexProduto');
+        dd('indexCurso');
 
     }
 
