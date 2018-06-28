@@ -17,8 +17,9 @@ class CursoController extends ContainerController {
         //dd($request->next);
 
         $this->view([
-            'curso' => 'PHP MVC'
-        ], 'portal.cursos');
+            'title' => 'Curso MVC',
+            'curso' => 'Curso MVC'
+        ], 'portal.curso');
 
     }
 
