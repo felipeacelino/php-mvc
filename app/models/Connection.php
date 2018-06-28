@@ -3,14 +3,15 @@
 namespace app\models;
 
 use PDO;
+use app\classes\Bind;
 
 class Connection {
 
-    public function connect() {
+    public static function connect() {
 
-        $pdo = new PDO('mysql:host=localhost;dbname=php_mvc;charset=utf8','root','');
-        $pdo->setAttributes('PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION');
-        $pdo->setAttributes('PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ');
+        $config = (object) Bind::get('config')->database;
+
+        $pdo = new PDO('mysql:host='.$config->host.';dbname='.$config->dbname.';charset='.$config->charset.'', $config->username, $config->password, $config->options);
 
         return $pdo;
 
