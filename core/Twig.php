@@ -24,5 +24,11 @@ class Twig {
         return new \Twig_Loader_Filesystem('../app/views');
 
     }
+
+    public function loadExtensions() {
+
+        return $this->twig->addExtension(new \Twig_Extensions_Extension_Text());
+
+    }
    
 }    

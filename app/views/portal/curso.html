@@ -1,5 +1,5 @@
 {% extends 'portal/layout.html' %} {% block portal %}
 
-<h2>{{ curso }}</h2>
+<h2>{{ curso | truncate(100) }}</h2>
 
 {% endblock %}

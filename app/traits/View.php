@@ -10,7 +10,10 @@ trait View {
 
         $twig = new Twig;
 
-        return $twig->loadTwig();
+        $loadTwig = $twig->loadTwig();
+        $twig->loadExtensions();
+
+        return $loadTwig;
 
     }
 
