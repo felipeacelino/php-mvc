@@ -30,5 +30,23 @@ class Twig {
         return $this->twig->addExtension(new \Twig_Extensions_Extension_Text());
 
     }
+
+    private function functionsToView($name, \Closure $callback) {
+
+        return new \Twig_Function($name, $callback);
+
+    }
+
+    public function loadFunctions() {
+
+        require '../app/functions/twig.php';
+
+        foreach ($this->functions as $key => $value) {
+            
+            $this->twig->addFunction($this->functions[$key]);
+
+        }
+
+    }
    
 }    
